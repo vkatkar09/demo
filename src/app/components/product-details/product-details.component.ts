@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import { ProductServices } from '../../shared/services/product.services';
 import {Router} from '@angular/router';
 import { Iproducts } from '../../shared/model/product';
+import { FormGroup, FormBuilder } from  '@angular/forms';
 
 @Component({
   selector: 'app-product-details',
@@ -12,16 +13,15 @@ import { Iproducts } from '../../shared/model/product';
 export class ProductDetailsComponent implements OnInit {
 
   public productDetailsID;
+  
   public productDetailsData :Iproducts;
-  constructor(private AR : ActivatedRoute, private productServices : ProductServices, private router: Router) { }
-
+  constructor(private formBuilder: FormBuilder, private AR : ActivatedRoute, private productServices : ProductServices, private router: Router) { }
   ngOnInit() {
 
     this.AR.params.subscribe(data =>{
       this.productDetailsID = data['id'];
   
     })
-
     this.productServices.Product()
     .subscribe(data =>{
       //console.log(this.productDetailsID)
@@ -39,5 +39,6 @@ export class ProductDetailsComponent implements OnInit {
       console.log(data);
     })
   }
+  
 
 }

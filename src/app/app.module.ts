@@ -8,9 +8,8 @@ import { ProductComponent } from './components/product/product.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListFilterPipe } from './pipes/list-filter.pipe'; 
-import { FormsModule } from '@angular/forms';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
-
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ListFilterPipe

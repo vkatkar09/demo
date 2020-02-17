@@ -1,15 +1,47 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10">
-            
+
             <div class="card cardMargin">
                 <div class="card-header bg-primary text-white">Welcome</div>
                 <div class="card-body">
-                    <img src="../../../assets/img/1.jpg" height="300px" width="550px"/>
+                    <img src="../../../assets/img/1.jpg" height="300px" width="550px" />
                 </div>
                 <div class="card-footer">Created By Vk ©2019</div>
             </div>
         </div>
     </div>
-</div>
+    <div class="row">
+        <br>
+        <div class="row">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+                    (change)="RegOffice()">
+    
+                Register office
+            </div>
+            <div class="form-check">
+                <input (change)="other()" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                    value="option1">
+                other
+            </div>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <input type="text" name="fullName" placeholder="Your full name" formControlName="fullName">
+                <br />
 
+                <input type="email" name="email" placeholder="Your email" formControlName="email">
+                <br />
+
+                <select formControlName="city">
+                    <option value="">Choose your city</option>
+                    <option *ngFor="let city of cities" [ngValue]="city">{{city}}</option>
+                  </select>
+
+                <br />
+                <input type="submit" value="Send">
+            </form>
+
+
+        </div>
+    </div>
+</div>
